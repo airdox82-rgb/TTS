@@ -41,6 +41,7 @@ def load_fsspec(
     Returns:
         Object stored in path.
     """
+    kwargs.setdefault("weights_only", False)
     is_local = os.path.isdir(path) or os.path.isfile(path)
     if cache and not is_local:
         with fsspec.open(
